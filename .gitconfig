@@ -1,0 +1,27 @@
+[user]
+	name = UC3M100495775
+	email = 100495775@alumnos.uc3m.es
+	signingKey = ""
+[core]
+	autocrlf = input
+	excludesfile = /Users/tito/.gitignore_global
+[remote "origin"]
+	proxy = 
+	proxy = 
+	proxy = 
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = false
+[gpg]
+	format = openpgp
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = ""
