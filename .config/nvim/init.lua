@@ -7,3 +7,7 @@ require('config.telescope')
 require('config.treesitter')
 require('config.neotree')
 
+
+--LSP config
+require('lsp')
+
