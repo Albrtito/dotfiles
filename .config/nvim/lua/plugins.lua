@@ -46,6 +46,7 @@ require("lazy").setup(
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip'},
     },
+    -- Lualine for quick info
     {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -84,7 +85,7 @@ require("lazy").setup(
     }
   },
     
-{
+    {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     lazy = false,
@@ -92,5 +93,16 @@ require("lazy").setup(
       require("todo-comments").setup {}
     end
   },
+-- Git handler 
+{
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+
+    "nvim-telescope/telescope.nvim", -- optional
+  },
+  config = true
+}
 
 })
