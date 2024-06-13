@@ -41,5 +41,56 @@ require("lazy").setup(
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     
-}
-)
+    -- Autocompletion
+    {
+    'hrsh7th/nvim-cmp',
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip'},
+    },
+    {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    
+    -- Pretty command line
+    {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        -- add any options here
+        routes = {
+          {
+            filter = {
+              event = 'msg_show',
+              any = {
+                { find = '%d+L, %d+B' },
+                { find = '; after #%d+' },
+                { find = '; before #%d+' },
+                { find = '%d fewer lines' },
+                { find = '%d more lines' },
+              },
+            },
+            opts = { skip = true },
+          }
+        },
+      })
+    end,
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+    
+{
+    "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    lazy = false,
+    config = function()
+      require("todo-comments").setup {}
+    end
+  },
+
+})
