@@ -122,3 +122,6 @@ source $ZSH/oh-my-zsh.sh
 # Created by `pipx` on 2024-06-20 22:16:23
 export PATH="$PATH:/Users/tito/.local/bin"
 if [ -f "/Users/tito/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/tito/.config/fabric/fabric-bootstrap.inc"; fi
+
+# Include starship config: 
+eval "$(starship init zsh)"
