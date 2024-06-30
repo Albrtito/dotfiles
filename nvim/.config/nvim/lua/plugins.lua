@@ -11,9 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-local opts = {}
-
-
+    
 require("lazy").setup(
     {
         -- Catppuccin theme plugin
@@ -23,6 +21,11 @@ require("lazy").setup(
             'nvim-telescope/telescope.nvim', tag = '0.1.5',
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
+        -- Telescope ui select
+        {
+            "nvim-telescope/telescope-ui-select.nvim"
+        },
+
         -- Treesitter plugin
         {"nvim-treesitter/nvim-treesitter",build = ":TSUpdate"},
 
@@ -37,7 +40,7 @@ require("lazy").setup(
                 -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
             },
         },
-        -- LSP manager
+        -- LSP manager: Config in lsp.lua
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
@@ -113,7 +116,7 @@ require("lazy").setup(
                 "rcarriga/nvim-notify",
             }
         },
-
+        -- Pretty comments (TODO, BUG, NOTES)
         {
             "folke/todo-comments.nvim",
             dependencies = "nvim-lua/plenary.nvim",
@@ -134,6 +137,4 @@ require("lazy").setup(
             config = true
         },
 
-        -- GitHub Copilot
-        "github/copilot.vim",
     })
