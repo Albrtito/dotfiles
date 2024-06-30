@@ -7,9 +7,9 @@ require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.neotree')
 require('plugins.lualine')
-require('plugins.lint')
+require('plugins.none-ls')
 
 --LSP config
-require('lsp-config')
+require('plugins.lsp-config')
 
 

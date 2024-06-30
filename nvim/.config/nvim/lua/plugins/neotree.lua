@@ -1,4 +1,4 @@
--- Setup for neotree
+--KEYBINDS
 vim.keymap.set('n','<leader>n', ':Neotree filesystem reveal left<CR>')
 
 
