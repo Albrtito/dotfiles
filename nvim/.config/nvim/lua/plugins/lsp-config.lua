@@ -25,7 +25,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 -- A list of servers to automatically install if they're not already installed
-                ensure_installed = { "pylsp", "lua_ls", "clangd" },
+                ensure_installed = { "pyright", "lua_ls", "clangd" },
             })
         end,
     },
@@ -34,11 +34,13 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.pylsp.setup({
+            lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
