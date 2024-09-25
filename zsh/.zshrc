@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
  alias cd="z"
  # Alias for self control 
  alias selfcontrol="/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli"
+# Alias for utm command tools:
+alias utm="utmctl"
 
 # CONFIGURATION OF COMMANDS:
 
@@ -125,3 +127,6 @@ if [ -f "/Users/tito/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/tito
 
 # Include starship config: 
 eval "$(starship init zsh)"
+
+# Go path
+export GOPATH=$HOME/go
