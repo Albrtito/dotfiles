@@ -8,6 +8,7 @@ local opts = {
 vim.g.mapleader = " "
 
 
+
 -----------------
 -- Normal mode --
 -----------------

@@ -107,8 +107,10 @@ source $ZSH/oh-my-zsh.sh
  alias cd="z"
  # Alias for self control 
  alias selfcontrol="/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli"
-# Alias for utm command tools:
-alias utm="utmctl"
+ # Alias for utm command tools:
+ alias utm="utmctl"
+ # Python alias for python3 so that I don't have to write python3 every 15:50
+ alias python="python3"
 
 # CONFIGURATION OF COMMANDS:
 
