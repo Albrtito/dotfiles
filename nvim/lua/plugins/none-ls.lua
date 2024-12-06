@@ -13,6 +13,15 @@ return {
 				null_ls.builtins.formatting.isort,
 				--null_ls.builtins.diagnostics.pylint,
 				--null_ls.builtins.formatting.autopep8,
+
+				-- Latex
+				-- Formatters
+				null_ls.builtins.formatting.latexindent, -- Formateador de LaTeX
+                null_ls.builtins.formatting.bibtex, -- Formateador de LaTeX
+				-- Linters
+				null_ls.builtins.diagnostics.vale, -- Linter de LaTeX
+				null_ls.builtins.diagnostics.proselint, -- Linter de LaTeX
+
 			},
 		})
 		--KEYBINDS:

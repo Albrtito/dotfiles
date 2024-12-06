@@ -19,9 +19,8 @@ return {
 	-- },
 
     --SET THE OPACITY OF THE BACKGROUND IMAGE
-	window_background_opacity = 0.7,
+	window_background_opacity = 1,
 	window_decorations = "RESIZE",
-	
     -- MOUSE SETTINGS:
     mouse_bindings = {
 		-- Ctrl-click will open the link under the mouse cursor

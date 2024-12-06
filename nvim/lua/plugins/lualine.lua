@@ -21,6 +21,8 @@ return {
                     winbar = 1000,
                 },
             },
+            -- Change this for sections and sections for 
+            -- tabline to move the location of the bar
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch", "diff", "diagnostics" },
