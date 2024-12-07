@@ -22,10 +22,10 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 -- Resize with arrows
 -- delta: 2 lines
-vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+vim.keymap.set('n', '<CS-Up>', ':resize -2<CR>', opts)
+vim.keymap.set('n', '<CS-Down>', ':resize +2<CR>', opts)
+vim.keymap.set('n', '<CS-Left>', ':vertical resize -2<CR>', opts)
+vim.keymap.set('n', '<CS-Right>', ':vertical resize +2<CR>', opts)
 
 -----------------
 -- Visual mode --

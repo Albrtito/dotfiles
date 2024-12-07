@@ -68,12 +68,15 @@ alias ls="lsd"
  
  # Config zoxide:
  eval "$(zoxide init zsh)"
-# Created by `pipx` on 2024-06-20 22:16:23
-export PATH="$PATH:/Users/tito/.local/bin"
-if [ -f "/Users/tito/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/tito/.config/fabric/fabric-bootstrap.inc"; fi
+ # Created by `pipx` on 2024-06-20 22:16:23
+ export PATH="$PATH:/Users/tito/.local/bin"
+ if [ -f "/Users/tito/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/tito/.config/fabric/fabric-bootstrap.inc"; fi
 
-# Include starship config: 
-eval "$(starship init zsh)"
+ # Include starship config: 
+ eval "$(starship init zsh)"
 
-
+ # CONFIGURATION OF THE CARAPACE PLUGIN:
+ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+ source <(carapace _carapace)
 
