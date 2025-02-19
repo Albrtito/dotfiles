@@ -32,3 +32,6 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false  -- Los archivos se abren sin pliegues
 vim.opt.foldlevel = 99     -- Abre todos los pliegues por defecto
+
+
+

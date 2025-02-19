@@ -35,6 +35,8 @@ return {
 		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            capabilities.offsetEncoding = { "utf-8" }
+            local clangd_capabilities = vim.tbl_deep_extend("force", capabilities, { offsetEncoding = { "utf-8" } })
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
@@ -44,13 +46,25 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.clangd.setup({
-				capabilities = capabilities,
+				capabilities = clangd_capabilities,
+                cmd = {"clangd", "--compile-commands-dir=build"},
+            settings = {
+                    clangd = {
+                        compileCommands = "build/compile_commands.json",  -- Point to the right path if needed
+                        includePaths = {
+                            "/opt/homebrew/include", -- For Apple Silicon
+                        }
+                    }
+                }
 			})
             lspconfig.texlab.setup({
                 capabilities = capabilities,
             })
             lspconfig.bashls.setup({
                 capabilities = capabilities,
+            })
+            lspconfig.glsl_analyzer.setup({
+                capabilities = clangd_capabilities,
             })
 			-- KEYBINDS
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

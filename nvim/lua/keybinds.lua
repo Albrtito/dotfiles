@@ -27,6 +27,13 @@ vim.keymap.set('n', '<CS-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<CS-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<CS-Right>', ':vertical resize +2<CR>', opts)
 
+-- Buffer navigation:
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', opts)
+vim.keymap.set('n', '<leader>bN', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<leader>bl', ':buffers<CR>', opts)
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', opts)
+vim.keymap.set('n', '<leader>b#', ':b#<CR>', opts)
+
 -----------------
 -- Visual mode --
 -----------------
