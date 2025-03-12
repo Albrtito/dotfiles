@@ -1,36 +1,30 @@
 return {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        require('lualine').setup {
-          options = {
-            icons_enabled = true,
-            --component_separators = '|',
-            --section_separators = '',
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
-
-          },
-          sections = {
-            lualine_x = {
-              {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
-                color = { fg = "#ff9e64" },
-              },
-              {
-                require("noice").api.status.command.get,
-                cond = require("noice").api.status.command.has,
-                color = { fg = "#ff9e64" },
-              },
-            },
-            lualine_a = {
-              {
-                'buffers',
-              }
-            }
-          }
-        }
-    end,
+	"nvim-lualine/lualine.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		require("lualine").setup({
+			options = {
+				icons_enabled = true,
+				theme = "catppuccin-mocha",
+				component_separators = "|",
+				section_separators = "",
+				--component_separators = { left = "", right = "" },
+				--section_separators = { left = "", right = "" },
+			},
+			tabline = {
+				lualine_a = { "mode" },
+				--lualine_b = {"buffers"},
+				lualine_x = { "filename","filetype" },
+				lualine_y = { "location" },
+				lualine_z = {
+					{
+						"datetime",
+						-- options: default, us, uk, iso, or your own format string ("%H:%M", etc..)
+						style = "default",
+					},
+				},
+			},
+			sections = {},
+		})
+	end,
 }
-

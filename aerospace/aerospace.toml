@@ -106,7 +106,7 @@ outer.right =      70
 # end tell'
 # '''
 
-alt-ctrl-shift-f = 'fullscreen'
+alt-shift-f = 'fullscreen'
 alt-ctrl-f = 'layout floating'
 
 alt-shift-left = 'join-with left'
@@ -140,6 +140,7 @@ alt-w = 'workspace 2'
 alt-e = 'workspace 3'
 alt-r = 'workspace 4'
 alt-t = 'workspace 5'
+alt-y = 'workspace 6'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
@@ -147,6 +148,7 @@ alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
 alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
 alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
 alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
 
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -155,7 +157,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-comma= 'mode service'
 alt-shift-enter = 'mode apps'
 
-alt-shift-t = 'exec-and-forget open -a /Applications/Wezterm.app'
+alt-g = 'exec-and-forget open -a /Applications/Ghostty.app'
 alt-a = 'exec-and-forget open -a /Applications/Arc.app'
 alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-s = 'exec-and-forget open -a /Applications/Spotify.app'

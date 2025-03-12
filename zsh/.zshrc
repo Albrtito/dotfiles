@@ -42,6 +42,10 @@ source $ZSH/oh-my-zsh.sh
  alias findwifipass="security find-generic-password -wa"
  # Connect to the virtual machine of the UC3M network Guernika
  alias guernika="ssh -p 22 a0495775@guernika.lab.inf.uc3m.es"
+ #Connect to the local debian linux machine
+ alias debian="ssh -p 22 tito@192.168.1.74"
+ #Connect to the local ubuntu linux machine
+ alias ubuntu="ssh -p 22 tito@192.168.1.76"
  # Change the cd command so it no longer executes CD but zoxide, a better version of cd.
  alias cd="z"
  # Alias for self control 
@@ -56,6 +60,14 @@ source $ZSH/oh-my-zsh.sh
  alias mupdf="mupdf-gl"
 # Use lsd instead of ls
 alias ls="lsd"
+# Use t instead of tmux
+alias t="tmux"
+# Use v instead of nvim
+alias v="nvim"
+# Use f instead of fzf
+alias f="fzf"
+# Use c instead of clear
+alias c="clear"
 
 
 # CONFIGURATION OF COMMANDS:
@@ -80,3 +92,4 @@ alias ls="lsd"
  zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
  source <(carapace _carapace)
 
+export MANPATH=$MANPATH:/opt/homebrew/share/man
