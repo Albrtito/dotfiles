@@ -8,7 +8,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-
 # Plugins
 plugins=(zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
@@ -41,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
  #Connect to the local ubuntu linux machine
  alias ubuntu="ssh -p 22 tito@192.168.1.76"
  # Change the cd command so it no longer executes CD but zoxide, a better version of cd.
- alias cd="z"
+
  # Alias for self control 
  alias selfcontrol="/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli"
  # Alias for utm command tools:
