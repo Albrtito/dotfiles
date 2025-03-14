@@ -1,9 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-#Path for homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
 
@@ -14,9 +8,9 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
+
 # Plugins
 plugins=(zsh-syntax-highlighting)
-
 source $ZSH/oh-my-zsh.sh
 
 
@@ -60,6 +54,7 @@ source $ZSH/oh-my-zsh.sh
  alias mupdf="mupdf-gl"
 # Use lsd instead of ls
 alias ls="lsd"
+alias lsa="lsd -a"
 # Use t instead of tmux
 alias t="tmux"
 # Use v instead of nvim
