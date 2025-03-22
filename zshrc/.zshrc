@@ -1,5 +1,8 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
+export MANPATH=$MANPATH:/opt/homebrew/share/man
+
 
 # ZSH Theme
 ZSH_THEME="robbyrussell"
@@ -10,17 +13,12 @@ DISABLE_AUTO_TITLE="true"
 
 # Plugins
 plugins=(zsh-syntax-highlighting)
-source $ZSH/oh-my-zsh.sh
+source $XDG_CONFIG_HOME/.oh-my-zsh/oh-my-zsh.sh
 
 
-# USER CONFIG
-
-# Initial shell prompt:
-    #neofetch
-    nerdfetch
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITO R='nvim'
+   export EDITOR='nvim'
  else
    export EDITOR='mvim'
  fi
@@ -86,4 +84,5 @@ alias c="clear"
  zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
  source <(carapace _carapace)
 
-export MANPATH=$MANPATH:/opt/homebrew/share/man
+
+
