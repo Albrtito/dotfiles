@@ -19,7 +19,6 @@ return {
 			vim.keymap.set("n", "<leader>p", function()
 				require("telescope.builtin").find_files({
 					hidden = true,
-					no_ignore = true,
 				})
 			end, {})
 			--  vim.keymap.set("n", "<leader>p", builtin.find_files, {})
