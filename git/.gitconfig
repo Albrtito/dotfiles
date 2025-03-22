@@ -1,7 +1,6 @@
 [user]
 	name = tito 
 	email = alb.pascau@gmail.com  
-	signingKey = ""
 [core]
 	autocrlf = input
 	excludesfile = /Users/tito/.gitignore_global
