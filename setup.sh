@@ -1,8 +1,8 @@
 #!/bin/bash
 
-stow -v . 
-stow -v --target=$HOME tmux
-stow -v --target=$HOME git
+stow -v -R . 
+#stow -v -R --target=$HOME tmux
+stow -v -R --target=$HOME git
 
 # Set up zsh path to config
 rm -rf $HOME/.zshenv
