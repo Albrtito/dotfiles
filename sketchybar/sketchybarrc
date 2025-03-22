@@ -51,10 +51,6 @@ source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 
 # Center
-#source "$ITEM_DIR/cpu.sh"
-
-# Right
-#source "$ITEM_DIR/.sh"
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update

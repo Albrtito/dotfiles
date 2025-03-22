@@ -13,10 +13,10 @@ for sid in $(aerospace list-workspaces --all); do
                               icon.highlight_color=$RED                     \
                               background.color=0x44ffffff \
                               background.corner_radius=5 \
-                              background.height=30 \
+                              background.height=22 \
                               background.drawing=off                         \
                               label.font="sketchybar-app-font:Regular:16.0" \
-                              label.background.height=30                    \
+                              label.background.height=22                    \
                               label.background.drawing=on                   \
                               label.background.color=0xff494d64             \
                               label.background.corner_radius=9              \
