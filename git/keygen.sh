@@ -19,7 +19,7 @@ ssh-keygen -t rsa -f ~/.ssh/id_$keyName -C "$email"
 eval "$(ssh-agent -s)"
 
 # Add the private key to the SSH agent
- ssh-add ~/.ssh/id_$keyName
+ssh-add ~/.ssh/id_$keyName
 
 echo "SSH key generated successfully!"
 echo "Your public key is located at: ~/.ssh/id_$keyName.pub"

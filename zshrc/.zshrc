@@ -2,8 +2,12 @@
 
 # PATHS:
 
+# Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export EDITOR="/opt/homebrew/bin/nvim"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export MANPATH=$MANPATH:/opt/homebrew/share/man
 export DOTFILES="$HOME/dotfiles"
@@ -14,6 +18,8 @@ export DOTFILES="$HOME/dotfiles"
 # Theme
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_TITLE="true"
+# For the virtualMachines
+#export TERM=vt100
 
 
 # PLUGINS:
@@ -37,7 +43,6 @@ export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
-
 
 
 

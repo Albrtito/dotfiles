@@ -25,7 +25,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				-- A list of servers to automatically install if they're not already installed
-				ensure_installed = {  "pyright" ,"lua_ls", "clangd", "texlab","bashls"},
+				ensure_installed = {  "pyright" ,"lua_ls", "clangd", "texlab","bashls","sqlls"},
 			})
 		end,
 	},
@@ -64,6 +64,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.glsl_analyzer.setup({
+                capabilities = clangd_capabilities,
+            })
+            lspconfig.sqlls.setup({
                 capabilities = clangd_capabilities,
             })
 			-- KEYBINDS

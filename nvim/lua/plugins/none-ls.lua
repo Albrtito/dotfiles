@@ -17,11 +17,24 @@ return {
 				-- Latex
 				-- Formatters
 				null_ls.builtins.formatting.latexindent, -- Formateador de LaTeX
-                null_ls.builtins.formatting.bibtex, -- Formateador de LaTeX
+				null_ls.builtins.formatting.bibtex, -- Formateador de LaTeX
 				-- Linters
 				null_ls.builtins.diagnostics.vale, -- Linter de LaTeX
 				null_ls.builtins.diagnostics.proselint, -- Linter de LaTeX
 
+				-- C/C++
+				-- Formatters
+				null_ls.builtins.formatting.clang_format, -- Formateador de C/C++
+				-- Linters
+				null_ls.builtins.diagnostics.clangtidy, -- Linter de C/C++
+
+                -- SQL
+                -- Formatters
+                null_ls.builtins.formatting.sql_formatter, -- Formateador de SQL
+                -- Linters: Oracle
+                null_ls.builtins.diagnostics.sqlfluff.with({
+                    extra_args = { "--dialect", "oracle" }, -- Specify the SQL dialect
+                }),
 			},
 		})
 		--KEYBINDS:
