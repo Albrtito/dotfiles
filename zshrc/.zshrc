@@ -98,9 +98,17 @@ alias debian="ssh -p 22 tito@192.168.1.74"
 alias ubuntu="ssh -p 22 tito@192.168.1.76"
 alias utm="utmctl"
 
+# Passwords
+export KPASSXC_DB="$HOME/100495775@alumnos.uc3m.es - Google Drive/My Drive/Passwords.kdbx"
+alias kp="keepassxc-cli ls \"$KPASSXC_DB\"" 
+alias kpshow="keepassxc-cli show \"$KPASSXC_DB\""
+alias kppass="keepassxc-cli show \"$KPASSXC_DB\" -a password"
+
+
 
 # Other
 alias findwifipass="security find-generic-password -wa"
+
 
 
 
