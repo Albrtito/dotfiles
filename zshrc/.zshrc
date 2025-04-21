@@ -94,8 +94,9 @@ alias cd="z"
 
 # Remote connections
 alias guernika="ssh -p 22 a0495775@guernika.lab.inf.uc3m.es"
-alias debian="ssh -p 22 tito@192.168.1.74"
-alias ubuntu="ssh -p 22 tito@192.168.1.76"
+# Currently not working
+#alias debian="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh debian)"
+alias ubuntu="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh ubuntu)"
 alias utm="utmctl"
 
 # Passwords
@@ -104,7 +105,8 @@ alias kp="keepassxc-cli ls \"$KPASSXC_DB\""
 alias kpshow="keepassxc-cli show \"$KPASSXC_DB\""
 alias kppass="keepassxc-cli show \"$KPASSXC_DB\" -a password"
 
-
+# Nmap
+alias nm="nmap -sC -sV -oN nmap"
 
 # Other
 alias findwifipass="security find-generic-password -wa"
@@ -113,3 +115,7 @@ alias findwifipass="security find-generic-password -wa"
 
 
 
+
+
+
+. "$HOME/.local/bin/env"

@@ -3,7 +3,7 @@
 # sketchybar settings
 
 
-# General Dimensions
+# Bar dimensions
 BAR_HEIGHT=50
 BAR_POSITION=right
 PADDING_RIGHT=18
@@ -18,3 +18,9 @@ BAR_STICKY=on
 
 # Visibility
 BAR_TOPMOST=off
+BAR_BLUR=20
+
+
+# Font
+# Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="SF Pro"
