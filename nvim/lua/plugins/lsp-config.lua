@@ -1,6 +1,6 @@
 return {
 	-- Setup mason
-	{
+	{ 
 		"williamboman/mason.nvim",
 		lazy = false,
 		config = function()
@@ -11,6 +11,7 @@ return {
 						package_pending = "➜",
 						package_uninstalled = "✗",
 					},
+                ensure_installed = {"clang-format","codelldb"},
 				},
 			})
 		end,
@@ -24,8 +25,8 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				-- A list of servers to automatically install if they're not already installed
-				ensure_installed = {  "pyright" ,"lua_ls", "clangd", "texlab","bashls","sqlls"},
+				-- A list of servers, formatters and linters to automatically install if they're not already installed
+				ensure_installed = { "pyright", "lua_ls", "clangd", "texlab", "bashls", "sqlls"},
 			})
 		end,
 	},
@@ -35,8 +36,8 @@ return {
 		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            capabilities.offsetEncoding = { "utf-8" }
-            local clangd_capabilities = vim.tbl_deep_extend("force", capabilities, { offsetEncoding = { "utf-8" } })
+			capabilities.offsetEncoding = { "utf-8" }
+			local clangd_capabilities = vim.tbl_deep_extend("force", capabilities, { offsetEncoding = { "utf-8" } })
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
@@ -47,28 +48,28 @@ return {
 			})
 			lspconfig.clangd.setup({
 				capabilities = clangd_capabilities,
-                cmd = {"clangd", "--compile-commands-dir=build"},
-            settings = {
-                    clangd = {
-                        compileCommands = "build/compile_commands.json",  -- Point to the right path if needed
-                        includePaths = {
-                            "/opt/homebrew/include", -- For Apple Silicon
-                        }
-                    }
-                }
+				cmd = { "clangd", "--compile-commands-dir=build" },
+				settings = {
+					clangd = {
+						compileCommands = "build/compile_commands.json", -- Point to the right path if needed
+						includePaths = {
+							"/opt/homebrew/include", -- For Apple Silicon
+						},
+					},
+				},
 			})
-            lspconfig.texlab.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.bashls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.glsl_analyzer.setup({
-                capabilities = clangd_capabilities,
-            })
-            lspconfig.sqlls.setup({
-                capabilities = clangd_capabilities,
-            })
+			lspconfig.texlab.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.bashls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.glsl_analyzer.setup({
+				capabilities = clangd_capabilities,
+			})
+			lspconfig.sqlls.setup({
+				capabilities = clangd_capabilities,
+			})
 			-- KEYBINDS
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
