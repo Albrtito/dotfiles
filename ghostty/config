@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = kanagawabones
 font-size = 16
 background-blur-radius = 20
 font-family = "Monaspace Argon","JetBrains Mono"
@@ -7,5 +7,5 @@ window-decoration = false
 macos-option-as-alt = false
 macos-titlebar-proxy-icon = hidden
 title = "ghostty"
-# background-opacity = 0.7
+#background-opacity = 0.7
 

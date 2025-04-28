@@ -10,7 +10,8 @@ return {
 	{
 		"augmentcode/augment.vim",
 		config = function()
-			vim.g.augment_workspace_folders = { "~/dotfiles/" }
+            -- Take all on the current dir
+			vim.g.augment_workspace_folders = {os.getenv("PWD")}
 			vim.g.augment_disable_completions = true
 		end,
 	},

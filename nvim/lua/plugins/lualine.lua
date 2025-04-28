@@ -2,6 +2,7 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
+        print(vim.cmd("colorscheme"))
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,

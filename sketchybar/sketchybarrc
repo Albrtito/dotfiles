@@ -31,18 +31,18 @@ sketchybar --bar     height=$BAR_HEIGHT                                 \
                      sticky=$BAR_STICKY                                 \
                      padding_right=$PADDING_RIGHT                       \
                      padding_left=$PADDING_LEFT                         \
-                     corner_radius=$BAR_CORNER_RADIOUS                  \
+                     corner_radius=$BAR_CORNER_RADIUS                   \
                      y_offset=$BAR_Y_OFFSET                             \
                      margin=$BAR_MARGIN                                 \
-                     blur_radius=$BAR_BLUR                                     \
+                     blur_radius=$BAR_BLUR                              \
                      topmost=$BAR_TOPMOST                               \
                                                                         \
            --default updates=when_shown                                 \
-                     icon.font="$FONT:Bold:14.0"                        \
+                     icon.font=$FONT+":Bold:20.0"                        \
                      icon.color=$ICON_COLOR                             \
                      icon.padding_left=$PADDINGS                        \
                      icon.padding_right=$PADDINGS                       \
-                     label.font="$FONT:Semibold:13.0"                   \
+                     label.font=$FONT+"Semibold:15.0"                   \
                      label.color=$LABEL_COLOR                           \
                      label.padding_left=$PADDINGS                       \
                      label.padding_right=$PADDINGS                      \
@@ -55,7 +55,6 @@ sketchybar --bar     height=$BAR_HEIGHT                                 \
                      popup.background.shadow.drawing=$SHADOW
 
 # Left
-source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 
 # Center

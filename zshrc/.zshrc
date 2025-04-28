@@ -8,9 +8,11 @@ export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR="/opt/homebrew/bin/nvim"
 
+# Enviroment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export MANPATH=$MANPATH:/opt/homebrew/share/man
 export DOTFILES="$HOME/dotfiles"
+export THEME="kanagawa"
 
 
 # GENERAl:
