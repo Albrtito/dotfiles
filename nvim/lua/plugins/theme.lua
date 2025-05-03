@@ -16,7 +16,7 @@ return {
 				},
 				{
 					name = "kanagawa",
-					colorscheme = "kanagawa",
+					colorscheme = "kanagawa-wave",
 					before = [[
                     require("lualine").setup({
                     options = {theme = "kanagawa"}})
@@ -30,10 +30,27 @@ return {
                     options = {theme = "cyberdream"}})
                     ]],
 				},
+				{
+					name = "rose-pine",
+					colorscheme = "rose-pine-dawn",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "rose-pine"}})
+                    ]],
+				},
+				{
+					name = "vim-paper",
+					colorscheme = "paper",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "paper"}})
+                    ]],
+				},
 			},
 			livePreview = true,
 		})
 		local theme = os.getenv("THEME")
+        print("Setting theme",theme)
 		--theme = "catppuccin"
 		th.setThemeByName(theme, true)
 	end,

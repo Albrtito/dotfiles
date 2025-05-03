@@ -6,14 +6,17 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Users/tito/.cargo/bin:$PATH"
 export EDITOR="/opt/homebrew/bin/nvim"
 
 # Enviroment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export MANPATH=$MANPATH:/opt/homebrew/share/man
 export DOTFILES="$HOME/dotfiles"
-export THEME="kanagawa"
 
+# SCRIPTS:
+source $XDG_CONFIG_HOME/scripts/theme.sh
+alias theme='. $XDG_CONFIG_HOME/scripts/theme.sh && change_global_theme'
 
 # GENERAl:
 

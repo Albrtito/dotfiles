@@ -18,6 +18,11 @@ return {
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>p", function()
 				require("telescope.builtin").find_files({
+					hidden = false,
+				})
+			end, {})
+			vim.keymap.set("n", "<leader>h", function()
+				require("telescope.builtin").find_files({
 					hidden = true,
 				})
 			end, {})
