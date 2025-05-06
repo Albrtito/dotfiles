@@ -38,6 +38,14 @@ return {
                     options = {theme = "rose-pine"}})
                     ]],
 				},
+				{
+					name = "vim-paper",
+					colorscheme = "paper",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "paper"}})
+                    ]],
+				},
 			},
 			livePreview = true,
 		})
