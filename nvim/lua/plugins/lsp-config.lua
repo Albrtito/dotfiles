@@ -6,14 +6,13 @@ return {
         lazy = false,
         config = function()
             local packages = {
+                "black",
+                "isort",
+                "textlint",
                 "clang-format",
                 "checkmake",
-                "vale",
-                "proselint",
-                "textlint",
                 "shfmt",
-                "black",
-                "isort"
+                "sqlfluff",
             }
 
             require("mason").setup({

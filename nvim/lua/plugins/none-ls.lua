@@ -17,7 +17,7 @@ return {
                 -- Latex: 
                 -- Activate when using latex as most also work with md and dont want that
                 -- Formatters
-                --null_ls.builtins.formatting.textlint, -- Formatting de LaTeX
+                null_ls.builtins.formatting.textlint, -- Formatting de LaTeX
                 -- Linters:
                 -- Code actions:
                 --null_ls.builtins.code_actions.proselint, -- CA de LaTeX
@@ -37,7 +37,7 @@ return {
                 null_ls.builtins.formatting.sqlfluff.with({
                     extra_args = { "--dialect", "oracle" }, -- Specify the SQL dialect
                 }),
-                -- Linters: Oracle
+                --Linters: Oracle
                 null_ls.builtins.diagnostics.sqlfluff.with({
                     extra_args = { "--dialect", "oracle" }, -- Specify the SQL dialect
                 }),
