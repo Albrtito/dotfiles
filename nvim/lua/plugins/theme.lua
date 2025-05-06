@@ -43,7 +43,7 @@ return {
 					colorscheme = "paper",
 					before = [[
                     require("lualine").setup({
-                    options = {theme = "paper"}})
+                    options = {theme = "auto"}})
                     ]],
 				},
 			},

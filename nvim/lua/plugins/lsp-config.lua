@@ -13,6 +13,7 @@ return {
                 "checkmake",
                 "shfmt",
                 "sqlfluff",
+                "stylua",
             }
 
             require("mason").setup({
