@@ -25,6 +25,10 @@ set_ghostty_theme() {
         gh_theme="catppuccin-mocha"
     elif [ "$theme" = "rose-pine" ]; then
         gh_theme="rose-pine-dawn"
+    elif [ "$theme" = "dayfox" ]; then
+        gh_theme="dayfox"
+    elif [ "$theme" = "dawnfox" ]; then
+        gh_theme="dawnfox"
     fi
     
     # Create a temporary file
@@ -60,7 +64,9 @@ change_global_theme() {
     echo -e "\nAvailable themes in the system:
 \n+ kanagawa | (defaults to wave)
 \n+ catppuccin | (defaults to mocha)
-\n+ rose-pine | (defaults to dawn)\n"
+\n+ rose-pine | (defaults to dawn)\n
+\n+ dayfox  \n
+\n+ dawnfox \n"
     # Check if we're in an interactive shell
     if [ -t 0 ]; then
         # Use shell-appropriate read command

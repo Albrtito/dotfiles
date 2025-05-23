@@ -15,7 +15,7 @@ return {
 			require("dapui").setup()
 
 			-- Configuration for python debugging
-			require("dap-python").setup("./.venv/bin/python")
+			require("dap-python").setup(".venv/bin/python3")
 			-- If using the above, then `/path/to/venv/bin/python -m debugpy --version`
 			-- must work in the shell)
 

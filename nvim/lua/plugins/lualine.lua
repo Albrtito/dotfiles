@@ -30,7 +30,7 @@ return {
 							newfile = "[New]", -- Text to show for newly created file before first write
 						},
 					},
-                    {"filetype"}
+					{ "filetype" },
 				},
 				lualine_y = { "location", "selectioncount" },
 				lualine_z = {
@@ -41,8 +41,29 @@ return {
 					},
 				},
 			},
-			sections = {},
-            winbar = {},
+
+			sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+			winbar = {},
 		})
+    -- Force override after lualine loads
+    vim.schedule(function()
+        vim.opt.laststatus = 0
+        vim.cmd('set laststatus=0')
+    end)
 	end,
 }

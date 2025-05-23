@@ -39,6 +39,22 @@ return {
                     ]],
 				},
 				{
+					name = "day-fox",
+					colorscheme = "dayfox",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "dayfox"}})
+                ]],
+				},
+				{
+					name = "dawn-fox",
+					colorscheme = "dawnfox",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "dawnfox"}})
+                ]],
+				},
+				{
 					name = "vim-paper",
 					colorscheme = "paper",
 					before = [[

@@ -19,5 +19,16 @@ return {
             })
             vim.treesitter.language.register("markdown", "vimwiki")
         end,
-    }
+    },
+    {
+        "junegunn/goyo.vim",
+    },
+    {
+        "preservim/vim-pencil",
+        ft = "markdown",
+        config = function()
+            vim.g["pencil#wrapModeDefault"] = "soft"
+            vim.cmd("PencilSoft") -- Activa Pencil automáticamente
+        end,
+    },
 }

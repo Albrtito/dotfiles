@@ -1,5 +1,6 @@
 require("keybinds")
 require("options")
+require("config.markdown")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

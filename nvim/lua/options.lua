@@ -17,9 +17,15 @@ vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.conceallevel = 2
 --vim.opt.textwidth = 80
+-- Hide built-in statusline elements
+vim.opt.ruler = false        -- Hides line/column position
+vim.opt.showcmd = false      -- Hides command info
+vim.opt.showmode = false     -- Hides mode indicator
+--vim.opt.laststatus = 0       -- Completely hides statusline
+--vim.opt.showtabline = 0 -- Hide the tabline
+vim.opt.cmdheight = 0        -- Hides command line area
 
--- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
-vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
+--vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered
@@ -30,8 +36,5 @@ vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entere
 -- Folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false  -- Los archivos se abren sin pliegues
-vim.opt.foldlevel = 99     -- Abre todos los pliegues por defecto
-
-
-
+vim.opt.foldenable = false -- Los archivos se abren sin pliegues
+vim.opt.foldlevel = 99 -- Abre todos los pliegues por defecto
