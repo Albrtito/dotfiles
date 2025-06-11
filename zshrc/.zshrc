@@ -7,6 +7,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/tito/.cargo/bin:$PATH"
+export PATH=$PATH:/Users/tito/.spicetify
 export EDITOR="/opt/homebrew/bin/nvim"
 
 # Enviroment variables
@@ -99,10 +100,11 @@ alias cd="z"
 
 # Remote connections
 alias guernika="ssh -p 22 a0495775@guernika.lab.inf.uc3m.es"
+alias utm="utmctl"
 # Currently not working
 #alias debian="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh debian)"
-alias ubuntu="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh ubuntu)"
-alias utm="utmctl"
+# Not in use, replaced by lime
+#alias ubuntu="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh ubuntu)"
 
 # Passwords
 export KPASSXC_DB="$HOME/100495775@alumnos.uc3m.es - Google Drive/My Drive/Passwords.kdbx"
@@ -116,8 +118,5 @@ alias nm="nmap -sC -sV -oN nmap"
 # Other
 alias findwifipass="security find-generic-password -wa"
 
+. "$HOME/.local/bin/env"
 
-clear
-#. "$HOME/.local/bin/env"
-
-export PATH=$PATH:/Users/tito/.spicetify
