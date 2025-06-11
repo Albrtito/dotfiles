@@ -6,7 +6,11 @@ local opts = {
 
 --LEADER
 vim.g.mapleader = " "
-
+-- RELOAD CONFIG
+vim.keymap.set('n', '<leader>r', function()
+  local config_path = vim.env.XDG_CONFIG_HOME .. '/nvim/init.lua'
+  vim.cmd('source ' .. config_path)
+end, { desc = 'Reload config' })
 -----------------
 -- Normal mode --
 -----------------

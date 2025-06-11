@@ -70,11 +70,11 @@ preset = 'qwerty'
 
 [gaps]
 inner.horizontal = 10
-inner.vertical =   6
-outer.left =       6
-outer.bottom =     6
-outer.top =        6
-outer.right =      70
+inner.vertical =   5
+outer.left =       5
+outer.bottom =     5
+outer.top =        45
+outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -134,7 +134,7 @@ alt-shift-l = 'move right'
 alt-ctrl-shift-j= 'resize smart -50'
 alt-ctrl-shift-k= 'resize smart +50'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+# Se: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-q = 'workspace 1'
 alt-w = 'workspace 2'
 alt-e = 'workspace 3'

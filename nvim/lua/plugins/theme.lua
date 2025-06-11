@@ -55,6 +55,14 @@ return {
                 ]],
 				},
 				{
+					name = "night-fox",
+					colorscheme = "nightfox",
+					before = [[
+                    require("lualine").setup({
+                    options = {theme = "nightfox"}})
+                ]],
+				},
+				{
 					name = "vim-paper",
 					colorscheme = "paper",
 					before = [[

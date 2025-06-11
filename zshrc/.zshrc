@@ -3,7 +3,7 @@
 # PATHS:
 
 # Homebrew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/tito/.cargo/bin:$PATH"
@@ -117,10 +117,7 @@ alias nm="nmap -sC -sV -oN nmap"
 alias findwifipass="security find-generic-password -wa"
 
 
+clear
+#. "$HOME/.local/bin/env"
 
-
-
-
-
-
-. "$HOME/.local/bin/env"
+export PATH=$PATH:/Users/tito/.spicetify
