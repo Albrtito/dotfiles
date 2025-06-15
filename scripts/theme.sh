@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-:<<'SCRIPT DEFINITION'
+: <<'SCRIPT DEFINITION'
 This script is used to change the system theme based on the defined 
 environment variable $THEME.
 It alters:
@@ -9,95 +9,125 @@ It does NOT alter:
 + The theme from nvim, this is done automatically within nvim
 SCRIPT DEFINITION
 
-
-DEFAULT_THEME="kanagawa"
+# The theme that will be loaded when the sheel starts
+DEFAULT_THEME="nightfox"
 unset THEME
+
+# An array with all the aviable themes
+aviable_themes=(
+    "kanagawa"
+    "catppuccin"
+    "rose-pine"
+    "dayfox"
+    "dawnfox"
+    "nightfox"
+)
+
+# A table with all the mappings between the aviable themes and their names in ghostty
+declare -A ghostty_theme_mapping=(
+    ["kanagawa"]="kanagawa wave"
+    ["catppuccin"]="catppuccin-mocha"
+    ["rose-pine"]="rose-pine-dawn"
+    ["dayfox"]="dayfox"
+    ["dawnfox"]="dawnfox"
+    ["nightfox"]="nightfox"
+)
+
+# Nice selection function given as params a prompt to echo,
+# the output value (by reference) and the options as an array
+function choose_from_menu() {
+    local prompt="$1" outvar="$2"
+    shift 2
+    local options=("$@")
+    local cur=0 count=${#options[@]} index=0
+    printf "$prompt\n"
+    while true
+    do
+        # list all options (option list is zero-based)
+        index=0 
+        for o in "${options[@]}"
+        do
+            if [[ "$index" == "$cur" ]]
+            then echo -e " >\e[7m$o\e[0m" # mark & highlight the current option
+            else echo "  $o"
+            fi
+            (( index++ ))
+        done
+        read -s -k1 key # wait for user to key in j/k or ENTER
+        if [[ $key == "k" ]] # k for up (vim-style)
+        then (( cur-- )); (( cur < 0 )) && (( cur = 0 ))
+        elif [[ $key == "j" ]] # j for down (vim-style)
+        then (( cur++ )); (( cur >= count )) && (( cur = count - 1 ))
+        elif [[ $key == $'\n' ]] # ENTER key
+        then break
+        fi
+        echo -en "\e[${count}A" # go up to the beginning to re-render
+    done
+    # export the selection to the requested output variable
+    ((cur++)) # Dont know what causes this error but it fixes it
+    printf -v "$outvar" '%s' "${options[$cur]}"
+}
 
 # Function for setting ghostty theme
 set_ghostty_theme() {
     local theme="$1"
     local config_file="$XDG_CONFIG_HOME/ghostty/config"
-    
-    # Set the actual theme name for ghostty config (without quotes, as shown in current config)
-    if [ "$theme" = "kanagawa" ]; then
-        gh_theme="kanagawa wave"
-    elif [ "$theme" = "catppuccin" ]; then
-        gh_theme="catppuccin-mocha"
-    elif [ "$theme" = "rose-pine" ]; then
-        gh_theme="rose-pine-dawn"
-    elif [ "$theme" = "dayfox" ]; then
-        gh_theme="dayfox"
-    elif [ "$theme" = "dawnfox" ]; then
-        gh_theme="dawnfox"
-    elif [ "$theme" = "nightfox" ]; then
-        gh_theme="nightfox"
-    fi
-    
-    # Create a temporary file
-    temp_file=$(mktemp)
-    
-    # Based on your current config, write just the theme name without "theme = " prefix
-    echo "theme="$gh_theme"" > "$temp_file"
-    
-    # Append the rest of the original file (excluding first line)
-    if [ -f "$config_file" ]; then
-        tail -n +2 "$config_file" >> "$temp_file"
-        # Replace original file with our new version
-        mv "$temp_file" "$config_file"
-        echo "Updated ghostty theme to $gh_theme"
-        echo "Remember to reload ghostty with cmd+S+,"
+
+    # Check if theme exists in mapping
+    if [[ -n "${ghostty_theme_mapping[$theme]}" ]]; then
+        local gh_theme="${ghostty_theme_mapping[$theme]}"
+
+        # Create a temporary file
+        temp_file=$(mktemp)
+
+        # Write the first line with the new theme into the ghostty config
+        echo "theme="$gh_theme"" >"$temp_file"
+
+        # Append the rest of the original file (excluding first line)
+        if [ -f "$config_file" ]; then
+            tail -n +2 "$config_file" >>"$temp_file"
+            # Replace original file with our new version
+            mv "$temp_file" "$config_file"
+            echo "Updated ghostty theme to $gh_theme"
+            osascript -e 'tell application "System Events" to keystroke "," using {command down, shift down}'
+            #echo "Remember to reload ghostty with cmd+S+,"
+        else
+            echo "Error: Config file not found at $config_file"
+            rm "$temp_file"
+            return 1
+        fi
     else
-        echo "Error: Config file not found at $config_file"
-        rm "$temp_file"
+        echo "Error: Theme '$theme' not found in available themes"
+        echo "Available themes: ${aviable_themes[*]}"
         return 1
     fi
 }
 
 # Function to set the global theme
 set_global_theme() {
-    # Read the theme, or set the default 
+    # Read the theme, or set the default
     export THEME=$DEFAULT_THEME
     set_ghostty_theme "$DEFAULT_THEME"
 }
 
 # Function to change the global theme
 change_global_theme() {
-    # Ask for a theme from a list of available themes:
-    echo -e "\nAvailable themes in the system:
-\n+ kanagawa | (defaults to wave)
-\n+ catppuccin | (defaults to mocha)
-\n+ rose-pine | (defaults to dawn)\n
-\n+ dayfox\n
-\n+ nightfox\n
-\n+ dawnfox\n"
     # Check if we're in an interactive shell
     if [ -t 0 ]; then
         # Use shell-appropriate read command
         if [ -n "$ZSH_VERSION" ]; then
             # ZSH version
-            echo -n "Name of the target theme: ($DEFAULT_THEME) "
-            read NEW_THEME
+            choose_from_menu "Select theme:" new_theme "${aviable_themes[@]}"
         else
             # Bash version
-            read -p "Name of the target theme: ($DEFAULT_THEME) " NEW_THEME
+            echo "Change to zsh!!"
         fi
-        NEW_THEME=${NEW_THEME:-$DEFAULT_THEME}
+        new_theme=${new_theme:-$DEFAULT_THEME}
     else
         # If not interactive, take the first argument or use default
-        NEW_THEME=${1:-$DEFAULT_THEME}
+        new_theme=${1:-$DEFAULT_THEME}
     fi
-    NEW_THEME=${NEW_THEME:-$DEFAULT_THEME}
-    export THEME=$NEW_THEME
-    #echo "Theme changed to $NEW_THEME"
-    set_ghostty_theme "$NEW_THEME"
+    new_theme=${new_theme:-$DEFAULT_THEME}
+    export THEME=$new_theme
+    set_ghostty_theme "$new_theme"
 }
-
-# Check if the script is being sourced or executed directly
-# This prevents set_global_theme from running when the alias calls the script
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    # Script is being executed directly, not sourced
-    change_global_theme
-else
-    # Script is being sourced, initialize the theme
-    set_global_theme
-fi

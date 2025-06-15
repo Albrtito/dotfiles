@@ -54,7 +54,7 @@ cpu:subscribe("cpu_update", function(env)
 end)
 
 cpu:subscribe("mouse.clicked", function(env)
-  sbar.exec("open -a 'Activity Monitor'")
+  sbar.exec("osascript -e 'tell application \"Ghostty\"' -e 'activate' -e 'tell application \"System Events\"' -e 'keystroke \"n\" using command down' -e 'delay 0.3' -e 'keystroke \"btop\" & return' -e 'end tell' -e 'end tell'")
 end)
 
 -- Background around the cpu item
