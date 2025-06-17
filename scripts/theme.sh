@@ -1,13 +1,14 @@
 #!/bin/zsh
 
-: <<'SCRIPT DEFINITION'
+:<<SCRIPT_DEFINITION
 This script is used to change the system theme based on the defined 
 environment variable $THEME.
 It alters:
-+ The terminal (ghostty) theme by deleting the first line of the config and adding a new one with the new theme
+The terminal (ghostty) theme by deleting the first line of the config and adding a new one with the new theme
 It does NOT alter:
-+ The theme from nvim, this is done automatically within nvim
-SCRIPT DEFINITION
+The theme from nvim, this is done automatically within nvim
+SCRIPT_DEFINITION
+
 
 # The theme that will be loaded when the sheel starts
 DEFAULT_THEME="nightfox"
@@ -41,25 +42,26 @@ function choose_from_menu() {
     local options=("$@")
     local cur=0 count=${#options[@]} index=0
     printf "$prompt\n"
-    while true
-    do
+    while true; do
         # list all options (option list is zero-based)
-        index=0 
-        for o in "${options[@]}"
-        do
-            if [[ "$index" == "$cur" ]]
-            then echo -e " >\e[7m$o\e[0m" # mark & highlight the current option
-            else echo "  $o"
+        index=0
+        for o in "${options[@]}"; do
+            if [[ "$index" == "$cur" ]]; then
+                echo -e " >\e[7m$o\e[0m" # mark & highlight the current option
+            else
+                echo "  $o"
             fi
-            (( index++ ))
+            ((index++))
         done
-        read -s -k1 key # wait for user to key in j/k or ENTER
-        if [[ $key == "k" ]] # k for up (vim-style)
-        then (( cur-- )); (( cur < 0 )) && (( cur = 0 ))
-        elif [[ $key == "j" ]] # j for down (vim-style)
-        then (( cur++ )); (( cur >= count )) && (( cur = count - 1 ))
-        elif [[ $key == $'\n' ]] # ENTER key
-        then break
+        read -s -k1 key            # wait for user to key in j/k or ENTER
+        if [[ $key == "k" ]]; then # k for up (vim-style)
+            ((cur--))
+            ((cur < 0)) && ((cur = 0))
+        elif [[ $key == "j" ]]; then # j for down (vim-style)
+            ((cur++))
+            ((cur >= count)) && ((cur = count - 1))
+        elif [[ $key == $'\n' ]]; then # ENTER key
+            break
         fi
         echo -en "\e[${count}A" # go up to the beginning to re-render
     done
