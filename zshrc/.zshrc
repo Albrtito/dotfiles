@@ -17,6 +17,7 @@ export DOTFILES="$HOME/dotfiles"
 
 # SCRIPTS:
 source $XDG_CONFIG_HOME/scripts/theme.sh
+set_global_theme
 #alias theme='. $XDG_CONFIG_HOME/scripts/theme.sh && change_global_theme'
 alias theme='change_global_theme'
 

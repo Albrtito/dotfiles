@@ -9,10 +9,12 @@ It does NOT alter:
 The theme from nvim, this is done automatically within nvim
 SCRIPT_DEFINITION
 
+# Use the following scripts
+source "$(dirname "$0")/data.sh"
+source "$(dirname "$0")/client-theme.sh"
 
-# The theme that will be loaded when the sheel starts
-DEFAULT_THEME="nightfox"
-unset THEME
+#source ./data.sh
+
 
 # An array with all the aviable themes
 aviable_themes=(
@@ -90,7 +92,7 @@ set_ghostty_theme() {
             tail -n +2 "$config_file" >>"$temp_file"
             # Replace original file with our new version
             mv "$temp_file" "$config_file"
-            echo "Updated ghostty theme to $gh_theme"
+            #echo "\n Updated ghostty theme to $gh_theme"
             osascript -e 'tell application "System Events" to keystroke "," using {command down, shift down}'
             #echo "Remember to reload ghostty with cmd+S+,"
         else
@@ -107,9 +109,11 @@ set_ghostty_theme() {
 
 # Function to set the global theme
 set_global_theme() {
+    # Read the theme from the global settings file
+    THEME=$(get_value "theme")
     # Read the theme, or set the default
-    export THEME=$DEFAULT_THEME
-    set_ghostty_theme "$DEFAULT_THEME"
+    export THEME
+    set_ghostty_theme "$THEME"
 }
 
 # Function to change the global theme
@@ -130,6 +134,11 @@ change_global_theme() {
         new_theme=${1:-$DEFAULT_THEME}
     fi
     new_theme=${new_theme:-$DEFAULT_THEME}
+    # Write the new theme in the file
+    set_value "theme" "$new_theme"
+    # Send message to nvim theme server
+    echo $new_them
+    send_message "$new_theme"
     export THEME=$new_theme
     set_ghostty_theme "$new_theme"
 }

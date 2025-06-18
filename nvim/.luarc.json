@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "logo_file"
+        "logo_file",
+        "getKeyByValue"
     ]
 }

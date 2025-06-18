@@ -6,11 +6,13 @@ local opts = {
 
 --LEADER
 vim.g.mapleader = " "
+
 -- RELOAD CONFIG
-vim.keymap.set('n', '<leader>r', function()
-  local config_path = vim.env.XDG_CONFIG_HOME .. '/nvim/init.lua'
-  vim.cmd('source ' .. config_path)
-end, { desc = 'Reload config' })
+vim.keymap.set("n", "<leader>r", function()
+	local config_path = vim.env.XDG_CONFIG_HOME .. "/nvim/init.lua"
+	vim.cmd("source " .. config_path)
+end, { desc = "Reload config" })
+
 -----------------
 -- Normal mode --
 -----------------
@@ -35,6 +37,11 @@ vim.keymap.set("n", "<leader>bN", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>bl", ":buffers<CR>", opts)
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
 vim.keymap.set("n", "<leader>b#", ":b#<CR>", opts)
+
+-- Tab navigation:
+vim.keymap.set("n", "<Tab>", "gt", opts)
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", opts)
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts)
 
 -----------------
 -- Visual mode --
