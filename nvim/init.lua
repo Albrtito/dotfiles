@@ -19,19 +19,24 @@ require("lazy").setup({
     { import = "plugins.themes" },
 })
 
--- Initialize the background theme server
-local server_path = vim.fn.stdpath("config") .. "/lua/utils/server-theme.lua"
-local command = "lua " .. server_path .. " &"
-print("Executing command " .. command)
---os.execute(command)
-
-vim.fn.jobstart({ "lua", server_path }, {
-    detach = true,
-    on_stdout = function(_, data)
-        for _, line in ipairs(data) do
-            if line ~= "" then
-                print(line)
-            end
-        end
-    end,
-})
+---- Initialize the background theme server
+--local server_path = vim.fn.stdpath("config") .. "/lua/utils/server-theme.lua"
+--local command = "lua " .. server_path .. " &"
+--print("Executing command " .. command)
+----os.execute(command)
+--
+--local function handle_output(prefix)
+--    return function(_, data)
+--        for _, line in ipairs(data) do
+--            if line ~= "" then
+--                print(prefix .. line)
+--            end
+--        end
+--    end
+--end
+--
+--vim.fn.jobstart({ "lua", server_path }, {
+--    detach = true,
+--    on_stdout = handle_output("STDOUT: "),
+--    on_stderr = handle_output("STDERR: "),
+--})
