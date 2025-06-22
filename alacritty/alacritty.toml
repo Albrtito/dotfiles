@@ -1,0 +1,90 @@
+# Alacritty configuration converted from Ghostty
+# Based on your Ghostty config with nightfox theme
+
+[window]
+# Equivalent to window-decoration = false
+decorations = "none"
+# Equivalent to background-blur-radius = 20
+blur = true
+# Equivalent to background-opacity = 0.7 (uncommented if needed)
+# opacity = 0.7
+title = "ghostty"
+
+[font]
+# Equivalent to font-family with fallback
+normal = { family = "Monaspace Argon", style = "Regular" }
+bold = { family = "Monaspace Argon", style = "Bold" }
+italic = { family = "Monaspace Argon", style = "Italic" }
+bold_italic = { family = "Monaspace Argon", style = "Bold Italic" }
+# Equivalent to font-size = 16
+size = 16
+
+[mouse]
+# Equivalent to mouse-hide-while-typing = true
+hide_when_typing = true
+
+[keyboard]
+# Equivalent to macos-option-as-alt = false
+bindings = [
+  # This prevents Option key from acting as Alt
+  { key = "A", mods = "Alt", chars = "å" },
+  { key = "B", mods = "Alt", chars = "∫" },
+  { key = "C", mods = "Alt", chars = "ç" },
+  { key = "D", mods = "Alt", chars = "∂" },
+  { key = "E", mods = "Alt", chars = "´" },
+  { key = "F", mods = "Alt", chars = "ƒ" },
+  { key = "G", mods = "Alt", chars = "©" },
+  { key = "H", mods = "Alt", chars = "˙" },
+  { key = "I", mods = "Alt", chars = "ˆ" },
+  { key = "J", mods = "Alt", chars = "∆" },
+  { key = "K", mods = "Alt", chars = "˚" },
+  { key = "L", mods = "Alt", chars = "¬" },
+  { key = "M", mods = "Alt", chars = "µ" },
+  { key = "N", mods = "Alt", chars = "˜" },
+  { key = "O", mods = "Alt", chars = "ø" },
+  { key = "P", mods = "Alt", chars = "π" },
+  { key = "Q", mods = "Alt", chars = "œ" },
+  { key = "R", mods = "Alt", chars = "®" },
+  { key = "S", mods = "Alt", chars = "ß" },
+  { key = "T", mods = "Alt", chars = "†" },
+  { key = "U", mods = "Alt", chars = "¨" },
+  { key = "V", mods = "Alt", chars = "√" },
+  { key = "W", mods = "Alt", chars = "∑" },
+  { key = "X", mods = "Alt", chars = "≈" },
+  { key = "Y", mods = "Alt", chars = "¥" },
+  { key = "Z", mods = "Alt", chars = "Ω" },
+]
+
+# Nightfox theme colors
+[colors.primary]
+background = "#192330"
+foreground = "#cdcecf"
+
+[colors.normal]
+black = "#393b44"
+red = "#c94f6d"
+green = "#81b29a"
+yellow = "#dbc074"
+blue = "#719cd6"
+magenta = "#9d79d6"
+cyan = "#63cdcf"
+white = "#dfdfe0"
+
+[colors.bright]
+black = "#575860"
+red = "#d16983"
+green = "#8ebaa4"
+yellow = "#e0c989"
+blue = "#86abdc"
+magenta = "#baa1e2"
+cyan = "#7ad5d6"
+white = "#e4e4e5"
+
+[[colors.indexed_colors]]
+# Additional nightfox colors
+index = 16
+color = "#f4a261"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#d67ad2"
