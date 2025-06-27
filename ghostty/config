@@ -1,7 +1,7 @@
-theme=dayfox
+theme=nightfox
 font-size = 16
 background-blur-radius = 20
-font-family = "Monaspace Argon","JetBrains Mono"
+font-family = "Monaspace Argon","Iosevka","JetBrains Mono"
 mouse-hide-while-typing = true
 macos-titlebar-style = hidden
 macos-option-as-alt = false
