@@ -1,11 +1,11 @@
 return {
 	-- Copilot
-	{
-		"github/copilot.vim",
-		config = function()
-			vim.cmd(":Copilot disable")
-		end,
-	},
+--	{
+--		"github/copilot.vim",
+--		config = function()
+--			vim.cmd(":Copilot disable")
+--		end,
+--	},
 	-- Augment
 	{
 		"augmentcode/augment.vim",

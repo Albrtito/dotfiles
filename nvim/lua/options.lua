@@ -18,12 +18,12 @@ vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.conceallevel = 2
 --vim.opt.textwidth = 80
 -- Hide built-in statusline elements
-vim.opt.ruler = false        -- Hides line/column position
-vim.opt.showcmd = false      -- Hides command info
-vim.opt.showmode = false     -- Hides mode indicator
+vim.opt.ruler = false -- Hides line/column position
+vim.opt.showcmd = false -- Hides command info
+vim.opt.showmode = false -- Hides mode indicator
 --vim.opt.laststatus = 0       -- Completely hides statusline
 --vim.opt.showtabline = 0 -- Hide the tabline
-vim.opt.cmdheight = 0        -- Hides command line area
+vim.opt.cmdheight = 0 -- Hides command line area
 
 --vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 

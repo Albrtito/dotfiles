@@ -10,9 +10,13 @@ return {
 
 				-- Python
 				null_ls.builtins.formatting.black,
-				null_ls.builtins.formatting.isort,
+				--null_ls.builtins.formatting.isort,
 				--null_ls.builtins.diagnostics.pylint,
 				--null_ls.builtins.formatting.autopep8,
+                --
+				-- Go
+                --null_ls.builtins.diagnostics.golangci_lint,
+                null_ls.builtins.formatting.gofmt,
 
 				-- Latex:
 				-- Activate when using latex as most also work with md and dont want that

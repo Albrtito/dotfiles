@@ -18,7 +18,6 @@ export DOTFILES="$HOME/dotfiles"
 # SCRIPTS:
 source $XDG_CONFIG_HOME/scripts/theme.sh
 set_global_theme
-#alias theme='. $XDG_CONFIG_HOME/scripts/theme.sh && change_global_theme'
 alias theme='change_global_theme'
 
 # GENERAl:
@@ -95,8 +94,8 @@ alias f="fzf"
 alias nv="nvim"
 alias ls="lsd"
 alias lsa="lsd -a"
-alias cat="bat"
-alias python="python3"
+alias cat="bat --theme=GitHub"
+alias py="python3"
 alias cd="z"
 
 
@@ -120,5 +119,8 @@ alias nm="nmap -sC -sV -oN nmap"
 # Other
 alias findwifipass="security find-generic-password -wa"
 
-. "$HOME/.local/bin/env"
+#. "$HOME/.local/bin/env"
 
+
+# Created by `pipx` on 2025-09-09 11:49:58
+export PATH="$PATH:/Users/tito/.local/bin"

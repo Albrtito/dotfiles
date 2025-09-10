@@ -22,11 +22,12 @@ local spaces = {}
 local function space_name(sid)
 	local space_icons = {
 		["1"] = "󰊠",-- Terminal icon for space 1
-		["2"] = "􀤆", -- Arc icon for space 2
-		["3"] = "􀉉" , -- Calendar icon for space 3
-		["4"] = "􀍝", -- Messages icon for space 4
-		["5"] = "􀥯", -- Messages icon for space 4
-		["6"] = "􀫀", -- Messages icon for space 4
+		["2"] = "N",-- Terminal icon for space 1
+		["3"] = "􀤆", -- Arc icon for space 2
+		["4"] = "􀉉" , -- Calendar icon for space 3
+		["5"] = "􀍝", -- Messages icon for space 4
+		["6"] = "􀥯", -- Messages icon for space 4
+		["7"] = "􀫀", -- Messages icon for space 4
 
 		-- Add more mappings as needed
 	}
