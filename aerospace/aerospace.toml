@@ -4,8 +4,9 @@ after-startup-command = ['exec-and-forget sketchybar']
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=10.0'
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=0'
 ]
+
 # Start AeroSpace at login
 start-at-login = true 
 
@@ -69,12 +70,12 @@ preset = 'qwerty'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 
 [gaps]
-inner.vertical=   5
-inner.horizontal= 5
-outer.left =       7
+inner.vertical=   7
+inner.horizontal= 7
+outer.left =       8
 outer.bottom =     5
-outer.top =        45
-outer.right =      7
+outer.top =        50
+outer.right =      8
 
 
 # 'main' binding mode declaration
@@ -161,7 +162,7 @@ alt-shift-comma= 'mode service'
 alt-shift-enter = 'mode apps'
 
 alt-g = 'exec-and-forget open -a /Applications/Ghostty.app'
-alt-a = 'exec-and-forget open -a /Applications/Arc.app'
+alt-a = 'exec-and-forget open -a /Applications/Safari.app'
 alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-s = 'exec-and-forget open -a /Applications/Spotify.app'
 alt-c = 'exec-and-forget open -a /System/Applications/Calendar.app'

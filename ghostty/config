@@ -11,5 +11,6 @@ title = "ghostty"
 gtk-titlebar = false
 shell-integration = zsh
 shell-integration-features = true
-window-padding-x = 2
+window-padding-x = 10
+window-padding-y = 10
 auto-update = download

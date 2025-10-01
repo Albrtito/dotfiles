@@ -1,32 +1,43 @@
 #!/bin/zsh
 
-# PATHS:
-
-# Homebrew
+# PATH
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/Users/tito/.cargo/bin:$PATH"
 export PATH=$PATH:/Users/tito/.spicetify
 export EDITOR="/opt/homebrew/bin/nvim"
 
-# Enviroment variables
+# homebrew
+export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
+# rust
+export PATH="/Users/tito/.cargo/bin:$PATH"
+
+# go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# env
 export XDG_CONFIG_HOME="$HOME/.config"
 export MANPATH=$MANPATH:/opt/homebrew/share/man
 export DOTFILES="$HOME/dotfiles"
+export TERM=xterm
 
-# SCRIPTS:
+# scripts
 source $XDG_CONFIG_HOME/scripts/theme.sh
+export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
 set_global_theme
 alias theme='change_global_theme'
+
+# bat
+# use bat as the pager for man pages
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
 
 # GENERAl:
 
 # Theme
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_TITLE="true"
-# For the virtualMachines
-#export TERM=vt100
 
 
 # PLUGINS:
@@ -86,15 +97,18 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+# bat
+alias cat="bat"
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-# General
+# general
 alias cl='clear'
 alias t="tmux"
 alias f="fzf"
 alias nv="nvim"
-alias ls="lsd"
-alias lsa="lsd -a"
-alias cat="bat --theme=GitHub"
+alias ls="lsd -l"
+alias lsa="lsd -la"
 alias py="python3"
 alias cd="z"
 

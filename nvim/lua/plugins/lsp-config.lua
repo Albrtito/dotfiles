@@ -130,7 +130,7 @@ return {
 					python = {
 						venvPath = ".",
 						venv = ".venv",
-						pythonPath = ".venv/bin/python",
+						pythonPath = ".venv/bin/python3",
 						analysis = {
 							autoSearchPaths = true,
 							diagnosticMode = "workspace",

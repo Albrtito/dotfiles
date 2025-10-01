@@ -28,7 +28,6 @@ local function space_name(sid)
 		["5"] = "􀍝", -- Messages icon for space 4
 		["6"] = "􀥯", -- Messages icon for space 4
 		["7"] = "􀫀", -- Messages icon for space 4
-
 		-- Add more mappings as needed
 	}
 
