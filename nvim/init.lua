@@ -19,4 +19,5 @@ require("lazy").setup({
     {import = "plugins.themes"}
 })
 
-
+-- theme setting
+vim.cmd("colorscheme nightfox")
