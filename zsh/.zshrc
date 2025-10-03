@@ -110,6 +110,25 @@ alias findwifipass="security find-generic-password -wa"
 # syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# autosuggestions taken from omerx
+setopt prompt_subst
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
+complete -C '/usr/local/bin/aws_completer' aws
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^w' autosuggest-execute
+bindkey '^e' autosuggest-accept
+bindkey '^u' autosuggest-toggle
+bindkey '^L' vi-forward-word
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
+
+# bind ctr+backspace to delete words
+bindkey '^H' backward-kill-word
+
 
 # ===
 # PACKAGES:
@@ -126,13 +145,19 @@ eval "$(zoxide init zsh)"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 eval "$(starship init zsh)"
 
+# carapace
+#   - currently not working
+#export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+#zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+#source <(carapace _carapace)
+
 
 # ===
 # octofetch
 # - for now only image
 # ===
 
-"cat" banner.txt
+"cat" $ZSH/banner.txt
 echo 
 echo 
 
