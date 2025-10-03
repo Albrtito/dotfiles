@@ -1,3 +1,0 @@
-
-# Created by `pipx` on 2025-09-09 11:49:58
-export PATH="$PATH:/Users/tito/.local/bin"

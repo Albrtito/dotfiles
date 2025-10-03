@@ -1,9 +1,15 @@
 #!/bin/zsh
+# ===
+# zsh personal config for tito
+# ===
 
-# PATH
+
+# ===
+# ENV
+# ===
+
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
 export PATH=$PATH:/Users/tito/.spicetify
-export EDITOR="/opt/homebrew/bin/nvim"
 
 # homebrew
 export PATH="/opt/homebrew/opt/python@2/libexec/bin:$PATH"
@@ -16,12 +22,6 @@ export PATH="/Users/tito/.cargo/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# env
-export XDG_CONFIG_HOME="$HOME/.config"
-export MANPATH=$MANPATH:/opt/homebrew/share/man
-export DOTFILES="$HOME/dotfiles"
-export TERM=xterm
-
 # scripts
 source $XDG_CONFIG_HOME/scripts/theme.sh
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
@@ -32,45 +32,23 @@ alias theme='change_global_theme'
 # use bat as the pager for man pages
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 
+# other
+export XDG_CONFIG_HOME="$HOME/.config"
+export MANPATH=$MANPATH:/opt/homebrew/share/man
+export DOTFILES="$HOME/dotfiles"
+export ZSH="$DOTFILES/zsh"
+export EDITOR="/opt/homebrew/bin/nvim"
+# colors in tmux
+export TERM="xterm-256color"
 
-# GENERAl:
-
-# Theme
-ZSH_THEME="robbyrussell"
-DISABLE_AUTO_TITLE="true"
-
-
-# PLUGINS:
-
-plugins=(zsh-syntax-highlighting)
-source $XDG_CONFIG_HOME/.oh-my-zsh/oh-my-zsh.sh
-
-
-# PACKAGES:
-
-# Thefuck
-eval $(thefuck --alias)
-# Fzf
-eval "$(fzf --zsh)"
-# Zoxide
-eval "$(zoxide init zsh)"
-# Starship
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
-# Carapace
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
-
-
-
+# ===
 # ALIASES:
+# ===
 
 # Dotfiles
-alias zshconfig="nvim $DOTFILES/zshrc/.zshrc"
-alias zshsource="source $DOTFILES/zshrc/.zshrc"
+alias zshconfig="nvim $ZSH/.zshrc"
+alias zshsource="source $ZSH/.zshrc"
 alias tmuxconfig="nvim $DOTFILES/tmux/tmux.conf"
-
 
 # Git
 alias gc="git commit -m"
@@ -89,7 +67,6 @@ alias gcoall='git checkout -- .'
 alias gr='git remote'
 alias gre='git reset'
 
-
 # Dirs
 alias ..="cd .."
 alias ...="cd ../.."
@@ -102,6 +79,15 @@ alias cat="bat"
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
+# remote
+alias guernika="ssh -p 22 a0495775@guernika.lab.inf.uc3m.es"
+
+# vm
+alias utm="utmctl"
+
+# nmap
+alias nm="nmap -sC -sV -oN nmap"
+
 # general
 alias cl='clear'
 alias t="tmux"
@@ -112,29 +98,41 @@ alias lsa="lsd -la"
 alias py="python3"
 alias cd="z"
 
-
-# Remote connections
-alias guernika="ssh -p 22 a0495775@guernika.lab.inf.uc3m.es"
-alias utm="utmctl"
-# Currently not working
-#alias debian="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh debian)"
-# Not in use, replaced by lime
-#alias ubuntu="ssh -p 22 tito@$(${XDG_CONFIG_HOME}/scripts/utm-findIP.sh ubuntu)"
-
-# Passwords
-export KPASSXC_DB="$HOME/100495775@alumnos.uc3m.es - Google Drive/My Drive/Passwords.kdbx"
-alias kp="keepassxc-cli ls \"$KPASSXC_DB\"" 
-alias kpshow="keepassxc-cli show \"$KPASSXC_DB\""
-alias kppass="keepassxc-cli show \"$KPASSXC_DB\" -a password"
-
-# Nmap
-alias nm="nmap -sC -sV -oN nmap"
-
-# Other
+# other
 alias findwifipass="security find-generic-password -wa"
 
-#. "$HOME/.local/bin/env"
+
+# ===
+# PLUGINS:
+# - without a package manager
+# ===
+
+# syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-# Created by `pipx` on 2025-09-09 11:49:58
-export PATH="$PATH:/Users/tito/.local/bin"
+# ===
+# PACKAGES:
+# ===
+
+# fzf
+eval "$(fzf --zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# starship
+#   change the default config dir
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+eval "$(starship init zsh)"
+
+
+# ===
+# octofetch
+# - for now only image
+# ===
+
+"cat" banner.txt
+echo 
+echo 
+
