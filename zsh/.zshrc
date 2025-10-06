@@ -152,12 +152,4 @@ eval "$(starship init zsh)"
 #source <(carapace _carapace)
 
 
-# ===
-# octofetch
-# - for now only image
-# ===
-
-"cat" $ZSH/banner.txt
-echo 
-echo 
 
