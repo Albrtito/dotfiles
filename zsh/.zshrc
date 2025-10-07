@@ -161,4 +161,5 @@ source <(carapace _carapace)
 
 # delete whole line with cmd + backspace
 bindkey '^U' backward-kill-line  
-
+# set vi mode
+set -o vi
