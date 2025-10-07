@@ -4,36 +4,6 @@
 # ===
 
 # ===
-# PLUGINS:
-# - without a package manager
-# ===
-
-# syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-setopt prompt_subst
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu select  
-zstyle ':completion:*' verbose yes  
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit
-compinit
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^w' autosuggest-execute
-bindkey '^e' autosuggest-accept
-bindkey '^u' autosuggest-toggle
-bindkey '^L' vi-forward-word
-bindkey '^k' up-line-or-search
-bindkey '^j' down-line-or-search
-
-# bind ctr+backspace to delete words
-bindkey '^H' backward-kill-word
-
-
-
-# ===
 # ENV
 # ===
 
@@ -69,6 +39,9 @@ export ZSH="$DOTFILES/zsh"
 export EDITOR="/opt/homebrew/bin/nvim"
 # colors in tmux
 export TERM="xterm-256color"
+
+
+
 
 # ===
 # ALIASES:
@@ -147,11 +120,45 @@ eval "$(zoxide init zsh)"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 eval "$(starship init zsh)"
 
-# carapace
-#   - currently not working
-#export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-#zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-#source <(carapace _carapace)
+
+# ===
+# PLUGINS:
+# - without a package manager
+# - using carapace for smarter completions
+# - format the completions manually (:completion*)
+# ===
+
+# zsh completion system
+autoload -Uz compinit
+compinit
+
+# autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# key bindings for autosuggest
+bindkey '^w' autosuggest-execute
+bindkey '^e' autosuggest-accept
+bindkey '^u' autosuggest-toggle
+bindkey '^L' vi-forward-word
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
+
+# syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# smarter completions
+# NOTE: must be loaded AFTER compinit
+export CARAPACE_BRIDGES='zsh'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' format '%F{white}Completing %d...%f'
+export LS_COLORS="di=34:fi=15:ln=36:pi=33:so=35:do=33:bd=33:cd=33:ex=32"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  
+source <(carapace _carapace)
 
 
+# ===
+# OTHER:
+# ===
+
+# delete whole line with cmd + backspace
+bindkey '^U' backward-kill-line  
 
