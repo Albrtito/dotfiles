@@ -3,6 +3,35 @@
 # zsh personal config for tito
 # ===
 
+# ===
+# PLUGINS:
+# - without a package manager
+# ===
+
+# syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+setopt prompt_subst
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select  
+zstyle ':completion:*' verbose yes  
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit
+compinit
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^w' autosuggest-execute
+bindkey '^e' autosuggest-accept
+bindkey '^u' autosuggest-toggle
+bindkey '^L' vi-forward-word
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
+
+# bind ctr+backspace to delete words
+bindkey '^H' backward-kill-word
+
+
 
 # ===
 # ENV
@@ -101,33 +130,6 @@ alias cd="z"
 # other
 alias findwifipass="security find-generic-password -wa"
 
-
-# ===
-# PLUGINS:
-# - without a package manager
-# ===
-
-# syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# autosuggestions taken from omerx
-setopt prompt_subst
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit
-compinit
-source <(kubectl completion zsh)
-complete -C '/usr/local/bin/aws_completer' aws
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^w' autosuggest-execute
-bindkey '^e' autosuggest-accept
-bindkey '^u' autosuggest-toggle
-bindkey '^L' vi-forward-word
-bindkey '^k' up-line-or-search
-bindkey '^j' down-line-or-search
-
-# bind ctr+backspace to delete words
-bindkey '^H' backward-kill-word
 
 
 # ===
