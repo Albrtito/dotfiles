@@ -1,4 +1,3 @@
 .DS_Store
-tmux/plugins/
-.zsh_history 
-zshrc/ohmyzsh
+.zsh_history
+.zcompdump
