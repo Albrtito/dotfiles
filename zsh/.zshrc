@@ -22,10 +22,10 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # scripts
-source $XDG_CONFIG_HOME/scripts/theme.sh
-export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
-set_global_theme
-alias theme='change_global_theme'
+#source $XDG_CONFIG_HOME/scripts/theme.sh
+#export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
+#set_global_theme
+#alias theme='change_global_theme'
 
 # bat
 # use bat as the pager for man pages
@@ -95,6 +95,7 @@ alias cl='clear'
 alias t="tmux"
 alias f="fzf"
 alias nv="nvim"
+alias lv="NVIM_APPNAME=lzvim nvim"
 alias ls="lsd -l"
 alias lsa="lsd -la"
 alias py="python3"
