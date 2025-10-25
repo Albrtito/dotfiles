@@ -11,3 +11,4 @@ gtk-titlebar = false
 window-padding-x = 10
 window-padding-y = 10
 auto-update = download
+background = #192330

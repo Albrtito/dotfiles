@@ -20,4 +20,4 @@ require("lazy").setup({
 })
 
 -- theme setting
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme tokyonight-moon")

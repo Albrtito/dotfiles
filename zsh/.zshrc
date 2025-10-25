@@ -22,8 +22,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # scripts
+export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
 #source $XDG_CONFIG_HOME/scripts/theme.sh
-#export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
 #set_global_theme
 #alias theme='change_global_theme'
 
