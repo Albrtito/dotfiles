@@ -1,12 +1,18 @@
-echo "creating proj structure"
+#!/bin/bash
 
-mkdir res
+# Create directories
 mkdir doc
+mkdir res
 mkdir src
 mkdir scripts
+mkdir tests
 
-echo "proj structure created"
-
-echo "init zk"
+# Init documentation
 zk init "doc/"
 touch doc/log.md
+touch README.md
+
+# Init git
+git init
+git add . 
+git commit -m "initial commit"
