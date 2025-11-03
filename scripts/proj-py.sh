@@ -8,6 +8,17 @@ mkdir out
 touch package/__init__.py
 touch requirements.txt
 
+# Ask for requirements
+read -p "Requirements(comma separated): " requirements
+for i in ${requirements//,/ }; do
+  # Write requirements into requirements.txt
+  echo $i >>requirements.txt
+done
+
 # Init venv
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+
+# Update .gitignore adding github gitignore for python
+curl -s https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore >>.gitignore
