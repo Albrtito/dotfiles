@@ -1,10 +1,23 @@
+-- ============================================================================
+-- Calendar/Clock Module
+-- ============================================================================
+-- Displays the current date and time in the format: "Day. DD Mon." "HH:MM"
+-- Example: "Mon. 04 Nov." "15:30"
+--
+-- Features:
+--   - Updates every 30 seconds
+--   - Clicking opens the macOS Calendar app
+--   - Double border effect using bracket styling
+--   - Right-aligned positioning
+-- ============================================================================
+
 local settings = require("settings")
 local colors = require("colors")
 
 -- Padding item required because of bracket
 sbar.add("item", { position = "right", width = settings.group_paddings })
 
-local cal = sbar.add("item", {
+local cal = sbar.add("item", "calendar", {
   icon = {
     color = colors.white,
     padding_left = 8,

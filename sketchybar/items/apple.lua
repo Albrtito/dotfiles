@@ -5,6 +5,8 @@ local settings = require("settings")
 -- Padding item required because of bracket
 sbar.add("item", { width = 5 })
 
+-- Apple logo item (left-most icon on the bar)
+-- Purely decorative - click functionality removed
 local apple = sbar.add("item", {
   icon = {
     font = { size = 16.0 },
@@ -20,7 +22,7 @@ local apple = sbar.add("item", {
   },
   padding_left = 1,
   padding_right = 1,
-  click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0"
+  -- click_script removed - Apple icon is now non-interactive
 })
 
 -- Double border for apple using a single item bracket

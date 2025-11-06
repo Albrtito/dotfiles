@@ -1,10 +1,37 @@
+-- ============================================================================
+-- Media Player Module
+-- ============================================================================
+-- Displays currently playing media with album artwork, artist, and title.
+-- Only shows when media is actively playing in whitelisted applications.
+--
+-- Whitelisted Apps: Spotify, Music
+--
+-- Features:
+--   - Album artwork display
+--   - Artist and title information (shows on hover)
+--   - Media controls popup (previous, play/pause, next)
+--   - Auto-hides when media is paused or stopped
+--   - Animations for smooth transitions
+--
+-- Dependencies: nowplaying-cli (must be installed via Homebrew)
+-- ============================================================================
+
 local icons = require("icons")
 local colors = require("colors")
 
+-- Only show media info for these applications
 local whitelist = { ["Spotify"] = true,
                     ["Music"] = true    };
 
-local media_cover = sbar.add("item", {
+-- Create a hidden item to poll for media updates
+-- This is a workaround for when native media events don't work
+local media_poller = sbar.add("item", "media_poller", {
+  drawing = false,
+  update_freq = 5,  -- Poll every 5 seconds
+  script = "$CONFIG_DIR/helpers/media_poll.sh"
+})
+
+local media_cover = sbar.add("item", "media_cover", {
   position = "right",
   background = {
     image = {
@@ -23,7 +50,7 @@ local media_cover = sbar.add("item", {
   }
 })
 
-local media_artist = sbar.add("item", {
+local media_artist = sbar.add("item", "media_artist", {
   position = "right",
   drawing = false,
   padding_left = 3,
@@ -39,7 +66,7 @@ local media_artist = sbar.add("item", {
   },
 })
 
-local media_title = sbar.add("item", {
+local media_title = sbar.add("item", "media_title", {
   position = "right",
   drawing = false,
   padding_left = 3,

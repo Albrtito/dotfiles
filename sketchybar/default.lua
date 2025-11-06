@@ -1,3 +1,16 @@
+-- ============================================================================
+-- Default Item Styles
+-- ============================================================================
+-- Defines default styling applied to all Sketchybar items unless overridden.
+-- This ensures visual consistency across the entire bar.
+--
+-- Properties defined here include:
+--   - Icon and label fonts, colors, and padding
+--   - Background styling (colors, borders, corner radius)
+--   - Popup appearance
+--   - Update behavior
+-- ============================================================================
+
 local settings = require("settings")
 local colors = require("colors")
 

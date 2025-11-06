@@ -19,15 +19,16 @@ end
 local spaces = {}
 
 -- Sets a name to each space based on their sid
+-- Maps workspace IDs to visual icons for easy identification
 local function space_name(sid)
 	local space_icons = {
-		["1"] = "󰊠",-- Terminal icon for space 1
-		["2"] = "N",-- Terminal icon for space 1
-		["3"] = "􀤆", -- Arc icon for space 2
-		["4"] = "􀉉" , -- Calendar icon for space 3
-		["5"] = "􀍝", -- Messages icon for space 4
-		["6"] = "􀥯", -- Messages icon for space 4
-		["7"] = "􀫀", -- Messages icon for space 4
+		["1"] = "󰊠",  -- Ghostty terminal (keeping original for now)
+		["2"] = "󰠮",  -- Obsidian note-taking app
+		["3"] = "􀤆",  -- Arc browser
+		["4"] = "􀉉",  -- Calendar
+		["5"] = "􀍝",  -- Messages
+		["6"] = "􀥯",  -- Generic app icon
+		["7"] = "󰓇",  -- Spotify music player
 		-- Add more mappings as needed
 	}
 
@@ -158,29 +159,7 @@ end)
 
 
 
--- Spaces indicator (matches original)
-local spaces_indicator = sbar.add("item", {
-	position = "left", -- Added position
-	padding_left = -3,
-	padding_right = 0,
-	icon = {
-		padding_left = 8,
-		padding_right = 9,
-		color = colors.grey,
-		string = icons.switch.on,
-	},
-	label = {
-		width = 0,
-		padding_left = 0,
-		padding_right = 8,
-		string = "Spaces",
-		color = colors.bg1,
-	},
-	background = {
-		color = colors.with_alpha(colors.grey, 0.0),
-		border_color = colors.with_alpha(colors.bg1, 0.0),
-	},
-})
+-- Spaces indicator removed - no longer needed for toggle functionality
 
 -- Handle window changes and app tracking
 space_window_observer:subscribe("aerospace_workspace_change", function(env)
@@ -203,41 +182,4 @@ space_window_observer:subscribe("aerospace_workspace_change", function(env)
 			label = { string = icon_line },
 		})
 	end
-end)
-
-spaces_indicator:subscribe("swap_menus_and_spaces", function(env)
-	local currently_on = spaces_indicator:query().icon.value == icons.switch.on
-	spaces_indicator:set({
-		icon = currently_on and icons.switch.off or icons.switch.on,
-	})
-end)
-
-spaces_indicator:subscribe("mouse.entered", function(env)
-	sbar.animate("tanh", 30, function()
-		spaces_indicator:set({
-			background = {
-				color = { alpha = 1.0 },
-				border_color = { alpha = 1.0 },
-			},
-			icon = { color = colors.bg1 },
-			label = { width = "dynamic" },
-		})
-	end)
-end)
-
-spaces_indicator:subscribe("mouse.exited", function(env)
-	sbar.animate("tanh", 30, function()
-		spaces_indicator:set({
-			background = {
-				color = { alpha = 0.0 },
-				border_color = { alpha = 0.0 },
-			},
-			icon = { color = colors.grey },
-			label = { width = 0 },
-		})
-	end)
-end)
-
-spaces_indicator:subscribe("mouse.clicked", function(env)
-	sbar.trigger("swap_menus_and_spaces")
 end)
