@@ -13,11 +13,11 @@ touch doc/log.md
 touch README.md
 touch doc/report.md
 
+# Create a makefile
+touch makefile
+
 # Create a gitignore
-echo
-"
-AGENTS.md 
-" >.gitignore
+touch .gitignore
 # Init git
 git init
 git add .
