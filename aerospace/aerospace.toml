@@ -182,6 +182,9 @@ alt-d = 'exec-and-forget open -a /Applications/Todoist.app'
 [[on-window-detected]]
     if.app-id = 'com.apple.Safari'
     run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'com.anthropic.claudefordesktop'
+    run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
     if.app-id = 'com.todoist.mac.Todoist'
@@ -200,6 +203,9 @@ alt-d = 'exec-and-forget open -a /Applications/Todoist.app'
 
 [[on-window-detected]]
     if.app-id = 'org.keepassxc.keepassxc'
+    run = 'move-node-to-workspace 6'
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
     run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
