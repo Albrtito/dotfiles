@@ -46,7 +46,6 @@ return {
 		-- Set the header
 		-- Change header based on the screen size
 
-
 		local function hasExternalDisplay()
 			local handle = io.popen("system_profiler SPDisplaysDataType | grep -c 'Display Type'")
 			local result = handle:read("*a")
@@ -92,7 +91,7 @@ return {
 		-- Set the info_block
 		local function get_footer()
 			local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
-			local lazy_stats = require("lazy").stats()
+			local lazy_stats = require("nvim.lua.config.lazy").stats()
 			local plugin_count = lazy_stats.count
 			local version = vim.version()
 			local nvim_version_info = string.format(" v%d.%d.%d", version.major, version.minor, version.patch)
