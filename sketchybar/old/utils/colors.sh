@@ -1,28 +1,18 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-# Color Palette
-#0x1f1f2800
-BLACK=0xff1f1f28
-WHITE=0xffcad3f5
-RED=0xff420217
-GREEN=0xffa6da95
-BLUE=0xff8aadf4
-YELLOW=0xffeed49f
-ORANGE=0xfff5a97f
-MAGENTA=0xffc6a0f6
-GREY=0xff939ab7
+# TokyoNight Night theme colors
+BLACK=0xff1a1b26      # #1a1b26 - Background
+WHITE=0xffc0caf5      # #c0caf5 - Foreground
+RED=0xfff7768e        # #f7768e - Red
+GREEN=0xff9ece6a      # #9ece6a - Green
+BLUE=0xff7aa2f7       # #7aa2f7 - Blue
+YELLOW=0xffe0af68     # #e0af68 - Yellow
+ORANGE=0xffff9e64     # #ff9e64 - Orange
+MAGENTA=0xffbb9af7    # #bb9af7 - Magenta
+GREY=0xff565f89       # #565f89 - Comment/Gray
 TRANSPARENT=0x00000000
 
-# General bar colors
-BAR_COLOR=0xff2E3532 # Green bar
-BAR_COLOR=$BLACK
-ICON_COLOR=$WHITE # Color of all icons
-LABEL_COLOR=$WHITE # Color of all labels
-
-POPUP_BACKGROUND_COLOR=$WHITE
-POPUP_BORDER_COLOR=$WHITE
-
-SHADOW_COLOR=$BLACK
-
-# Item specific special colors
-SPOTIFY_GREEN=$GREEN
+# TokyoNight specific colors
+BG1=0xff202331        # Darker items
+BG2=0xff292e42        # Lighter items
+BAR_COLOR=0xff1a1b26  # TokyoNight background

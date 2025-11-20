@@ -82,7 +82,7 @@ update_display() {
         sketchybar --set pomodoro \
             label="$display_time" \
             icon="$icon" \
-            icon.color=0xffe2e2e3
+            icon.color=0xffc0caf5  # TokyoNight white/foreground
     else
         # Timer is running
         local time_info=$(calculate_time)
@@ -97,15 +97,15 @@ update_display() {
             sketchybar --set pomodoro \
                 label="$display_time" \
                 icon="$icon" \
-                icon.color=0xfffc5d7c \
-                label.color=0xfffc5d7c
+                icon.color=0xfff7768e \  # TokyoNight red
+                label.color=0xfff7768e   # TokyoNight red
         else
             # Normal color when running
             sketchybar --set pomodoro \
                 label="$display_time" \
                 icon="$icon" \
-                icon.color=0xffe2e2e3 \
-                label.color=0xffe2e2e3
+                icon.color=0xffc0caf5 \  # TokyoNight white/foreground
+                label.color=0xffc0caf5   # TokyoNight white/foreground
         fi
     fi
 }
@@ -144,7 +144,7 @@ case "$1" in
         
         # Rotate animation when switching
         sketchybar --animate tanh 20 \
-            --set pomodoro icon.scale=0.7 icon.color=0xff8aadf4 \
+            --set pomodoro icon.scale=0.7 icon.color=0xff7aa2f7 \  # TokyoNight blue
             --animate tanh 20 \
             --set pomodoro icon.scale=1.0
         
